@@ -42,19 +42,5 @@ namespace WebAPI.Controllers
 
             return produto;
         }
-
-        [HttpPost]
-
-        public ActionResult Post(Produto produto)
-        {
-            if (produto is null)
-                return BadRequest();
-            
-            _context.Produtos.Add(produto);
-            _context.SaveChanges();
-            
-            return new CreatedAtRouteResult("ObterProduto", 
-                new { id = produto.ProdutoId }, produto);
-        }
     }
 }
